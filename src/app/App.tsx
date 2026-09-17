@@ -28,6 +28,7 @@ import { EmployeeSettingsScreen } from "./components/task-dashboard/screens/Empl
 import { ProfileScreen } from "./components/task-dashboard/screens/ProfileScreen";
 import { NotFoundScreen } from "./components/task-dashboard/screens/NotFoundScreen";
 import { AccessDeniedScreen } from "./components/task-dashboard/screens/AccessDeniedScreen";
+import { WorkspaceProvider } from "./components/task-dashboard/WorkspaceContext";
 
 const CreateTaskScreen = lazy(() => import("./components/task-dashboard/screens/CreateTaskScreen").then((module) => ({ default: module.CreateTaskScreen })));
 const DelegateTaskScreen = lazy(() => import("./components/task-dashboard/screens/DelegateTaskScreen").then((module) => ({ default: module.DelegateTaskScreen })));
@@ -123,5 +124,5 @@ function AppRuntime() {
 }
 
 export default function App() {
-  return <ThemeProvider><DndProvider backend={HTML5Backend}><AuthProvider><AppRuntime /></AuthProvider></DndProvider></ThemeProvider>;
+  return <ThemeProvider><DndProvider backend={HTML5Backend}><AuthProvider><WorkspaceProvider><AppRuntime /></WorkspaceProvider></AuthProvider></DndProvider></ThemeProvider>;
 }
